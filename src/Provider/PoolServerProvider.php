@@ -17,4 +17,10 @@ class PoolServerProvider extends AbstractProvider
             return (new DBPool)->init()->gcSpareObject();
         });
     }
+
+    public function active()
+    {
+        $this->app->active('redis_pool');
+        $this->app->active('db_pool');
+    }
 }
